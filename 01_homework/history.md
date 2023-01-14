@@ -1,3 +1,23 @@
+## Homework 01 step by step
+### Main tool: **virt-manager** https://virt-manager.org/
+In Preferences allow XML editing.
+
+        1. Create network based on vm-net.xml
+                - switch off "Autostart On Boot" in **default** network details
+
+        2. Resolve tftp "no directory" error
+                - vm-net looking for tftp folder on host (!)
+                        --$ sudo mkdir /srv/tftp/
+                        --$ sudo chmod 755 /srv/tftp && ls -lA /srv
+
+        3. Create network based on vm-int.xml
+                - vm-net may conflict with default network because of 'bridge name="virbr0" stp="on" delay="0"/>'
+                        -- switch bridge of default network to "virbr1" <bridge name="virbr1" stp="on" delay="0"/>
+        
+        4. VM's setting up following DmVPN.pdf
+                - add VyOS image file to "/var/lib/libvirt/images" or use "Browse local" to downloaded file
+
+## Archive
 gem fetch vagrant-vyos
 gem install vagrant-vyos
 
