@@ -17,7 +17,19 @@ In Preferences allow XML editing.
         4. VM's setting up following DmVPN.pdf
                 - add VyOS image file to "/var/lib/libvirt/images" or use "Browse local" to downloaded file
 
-## Archive
+### Terminal to vm's
+Great way to use gnome-terminal inside vm's is:
+        1. List avail vm's or "domains" in virsh terminology
+                - virsh list --all
+        2. Connect to console to vm of choice
+                - virsh console #name_of_vm ```virsh console VyOS1```
+                - ```virsh console VyOS1 --force``` if you launch GUI console
+
+### Testing VyOS config scripts
+Clone (1) first vm, create files there (2) with gnome-terminal, snapshot clone (3) and test (4) as much as you like.
+
+
+## Archive of my struggles
 gem fetch vagrant-vyos
 gem install vagrant-vyos
 

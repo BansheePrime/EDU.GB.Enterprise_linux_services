@@ -6,12 +6,12 @@ source /opt/vyatta/etc/functions/script-template
 configure
 
 # Tunnelsetup of VyOS2 VM
-set interfaces tunnel tun66 address '172.16.10.3/24'
+set interfaces tunnel tun66 address '172.16.10.2/24'
 set interfaces tunnel tun66 encapsulation 'gre'
 set interfaces tunnel tun66 ip adjust-mss 'clamp-mss-to-pmtu'
 set interfaces tunnel tun66 multicast 'enable'
 set interfaces tunnel tun66 parameters ip key '1'
-set interfaces tunnel tun66 source-address '10.22.10.3'
+set interfaces tunnel tun66 source-address '10.22.10.2'
 set interfaces tunnel tun66 source-interface 'eth0'
 set protocols nhrp tunnel tun66 cisco-authentication 'qwerty123'
 set protocols nhrp tunnel tun66 map 172.16.10.1/24 nbma-address '10.22.10.1'
@@ -46,9 +46,6 @@ set vpn ipsec profile dm66 esp-group 'esp_s1'
 set vpn ipsec profile dm66 ike-group 'ike_s1'
 
 commit
-
-# loaded ike secret ‘ike-dmvpn-tun66’
-loaded ike secret 'ike-dmvpn-tun66'
 save
 
 # Continue

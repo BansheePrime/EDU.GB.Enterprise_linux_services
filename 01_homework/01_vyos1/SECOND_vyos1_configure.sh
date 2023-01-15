@@ -43,8 +43,6 @@ set vpn ipsec profile dm66 esp-group 'esp_h1'
 set vpn ipsec profile dm66 ike-group 'ike_h1'
 
 commit
-# loaded ike secret ‘ike-dmvpn-tun66’
-loaded ike secret 'ike-dmvpn-tun66'
 save
 
 # Continue
