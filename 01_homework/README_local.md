@@ -15,7 +15,13 @@ In Preferences allow XML editing.
                         -- switch bridge of default network to "virbr1" <bridge name="virbr1" stp="on" delay="0"/>
         
         4. VM's setting up following DmVPN.pdf
-                - add VyOS image file to "/var/lib/libvirt/images" or use "Browse local" to downloaded file
+                - in virt-manager gui add VyOS image file to "/var/lib/libvirt/images" or use "Browse local" to downloaded file
+
+        5. See **"Terminal to vm's"**
+
+        6. Launch vi to create scripts inside vm's
+
+        7. Launch FIRST and SECOND scripts
 
 ### Terminal to vm's
 Great way to use gnome-terminal inside vm's is:
@@ -30,22 +36,26 @@ Clone (1) first vm, create files there (2) with gnome-terminal, snapshot clone (
 
 
 ## Archive of my struggles
+
+### Attempt to use Vagrant
 gem fetch vagrant-vyos
 gem install vagrant-vyos
 
+### Errors in Vagrant logs
 error: failed to get mtu of bridge `virbr0': No such device (Libvirt::Error)
 
+### Setting up network for vm's via virsh
 virsh # net-list --all --inactive
-
 virsh # net-define /home/gidra/Public/EDU.GB.Enterprise_linux_services/01_homework/vm-net.xml
 virsh # net-autostart vm-net
 
+### Fixing xml file with tftp root dir
+<!-- changing tftp folder. Default was: <tftp root="/srv/tftp"/> -->
+<tftp root="/var/lib/tftpboot"/>
 
-        <!-- changing tftp folder. Default was: <tftp root="/srv/tftp"/> -->
-        <tftp root="/var/lib/tftpboot"/>
-
-   30  sudo cp /usr/lib/systemd/system/tftp.service /usr/lib/systemd/system/tftp.service.bak
-   31  ls /usr/lib/systemd/system/tf*
-   32  sudo vim /usr/lib/systemd/system/tftp.service 
-   33  sudo systemctl restart tftp.service 
-   34  sudo systemctl daemon-reload 
+### TFTP
+sudo cp /usr/lib/systemd/system/tftp.service /usr/lib/systemd/system/tftp.service.bak
+ls /usr/lib/systemd/system/tf*
+sudo vim /usr/lib/systemd/system/tftp.service 
+sudo systemctl restart tftp.service 
+sudo systemctl daemon-reload 
