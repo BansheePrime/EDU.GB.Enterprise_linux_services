@@ -23,6 +23,8 @@ In Preferences allow XML editing.
 
         7. Launch FIRST and SECOND scripts
 
+        8. ssh to vm and run ```"show ip ospf database"```
+
 ### Terminal to vm's
 Great way to use gnome-terminal inside vm's is:
         1. List avail vm's or "domains" in virsh terminology
