@@ -1,0 +1,16 @@
+<network>
+    <name>vm-net</name>
+    <forward mode="nat">
+        <nat>
+            <port start="1024" end="65535"/>
+        </nat>
+    </forward>
+    <bridge name="vm-net0" stp="on" delay="0"/>
+    <ip address="10.100.10.1" netmask="255.255.255.192">
+        <tftp root="/srv/tftp"/>
+        <dhcp>
+            <range start="10.100.10.12" end="10.100.10.62"/>
+            <bootp file="pxelinux.0" server="10.100.10.1"/>
+        </dhcp>
+    </ip>
+</network>
