@@ -1,0 +1,6 @@
+<network>
+    <name>vm-int</name>
+    <bridge name="virbr0" stp="on" delay="0"/>
+    <mac address="52:54:00:e4:89:16"/>
+    <domain name="vm-int"/>
+</network>
