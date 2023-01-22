@@ -1,0 +1,20 @@
+dn: dc=example,dc=int
+objectClass: top
+objectClass: dcObject
+objectclass: organization
+o: example
+dc: example
+
+dn: cn=admin,dc=example,dc=int
+objectClass: simpleSecurityObject
+objectClass: organizationalRole
+cn: admin
+userPassword: {SSHA}jD2hO2e1c0yE9/LK115PMC/zV/w9aNLy
+
+dn: ou=people,dc=example,dc=int
+objectClass: organizationalUnit
+ou: people
+
+dn: ou=groups,dc=example,dc=int
+objectClass: organizationalUnit
+ou: groups

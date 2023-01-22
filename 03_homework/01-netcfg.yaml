@@ -1,0 +1,11 @@
+## Setup for AAA vm
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp8s0:
+      dhcp4: no
+      addresses: [172.16.0.11/24]
+      gateway4: 172.16.0.1
+      nameservers:
+        addresses: [172.16.0.10]
